@@ -1,0 +1,16 @@
+[project]
+name = "Flask_LNbits"
+description = "A Flask LNbits extension."
+version = "0.1.0"
+readme = "README.md"
+authors = [
+    { name = "Alex Lewis", email = "git@ajrlewis.com" }
+]
+dependencies = [
+    "Flask >= 2.2.2",
+]
+
+[project.urls]
+"Source Code" = "https://github.com/ajrlewis/flask_lnbits/"
+"Issue Tracker" = "https://github.com/ajrlewis/flask_lnbits/issues/"
+Twitter = "https://twitter.com/ajrlewis"
