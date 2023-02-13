@@ -71,6 +71,7 @@ class LNbits:
             "date": datetime.now().strftime("%m/%d/%Y, %H:%M:%S"),
             "amount": amount,
             "unit": unit,
+            "memo": memo,
             "payment_request": "",
             "payment_hash": "",
         }
