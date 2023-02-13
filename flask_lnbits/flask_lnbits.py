@@ -27,7 +27,7 @@ class LNbits:
             self.init_app(app)
 
     def init_app(self, app: Flask):
-        self.host = app.config.get("LNBITS_HOST")
+        self.host = app.config.get("LNBITS_HOST", "")
         self.read_key = app.config.get("LNBITS_READ_KEY", "")
         self.webhook = app.config.get("LNBITS_WEBHOOK", "")
         if ".onion" in self.host:
@@ -93,8 +93,12 @@ class LNbits:
             pass
         else:
             data_out["payment_request"] = data["payment_request"]
-            data_out["payment_hash"] = data["payment_hash"]            
+            data_out["payment_hash"] = data["payment_hash"]
         return data_out
+
+    def get_invoice(self, payment_hash: str) -> Dict[str, Any]:
+        # curl -X GET https://legend.lnbits.com/api/v1/payments/<payment_hash> -H "X-Api-Key: " -H "Content-type: application/json"
+        pass
 
     def get_lnurlp(self, pay_id: Optional[int] = None) -> Dict[str, Any]:
         """Gets and returns an LNURL pay link.
@@ -102,7 +106,7 @@ class LNbits:
         Args:
             pay_id: Return a pay link with a given ID.
         Returns:
-            A dictionary containing an LNURL pay link. 
+            A dictionary containing an LNURL pay link.
         """
         print(__name__, "get_lnurlp")
         data_out = {
