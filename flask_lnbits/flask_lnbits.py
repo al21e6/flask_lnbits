@@ -82,7 +82,7 @@ class LNbits:
                 "memo": memo,
                 "unit": unit,
                 "webhook": self.webhook,
-                "internal": False,  # use the fake wallet if the invoice is for internal use only.e
+                "internal": False,  # use fake wallet if the invoice is for internal use only.
             }
             response = self.session.post(
                 f"{self.wallet_host}/payments",
